@@ -1,0 +1,41 @@
+#env variables
+.env
+
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+
+# Build output
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Coverage directory
+coverage/
+
+# Testing files
+test/
+*.spec.js
+*.test.js
+
+# Miscellaneous
+package-lock.json
+yarn.lock
