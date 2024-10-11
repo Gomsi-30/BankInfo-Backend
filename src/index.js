@@ -29,7 +29,9 @@ const app = express();
 const PORT = 3001;
 dotenv.config();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://radiant-hummingbird-74cf5c.netlify.app'
+}));
 app.use(express.json());
 app.use(fileUpload());
 connectDB();
