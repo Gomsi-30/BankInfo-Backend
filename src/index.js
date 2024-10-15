@@ -10,10 +10,12 @@ import adminRoutes from './routes/adminRoutes.js';
 dotenv.config();
 export const app = express();
 app.use(cookieParser());
-app.use(cors({
-  origin: '*',
+const corsOptions = {
+  origin: 'https://bank-info-frontend.netlify.app',
   credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
 connectDB();
 
 app.use(express.json());
