@@ -11,7 +11,7 @@ dotenv.config();
 export const app = express();
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://bank-info-frontend.netlify.app/',
   credentials: true,
 }));
 connectDB();
