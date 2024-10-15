@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 const corsOptions = {
-  origin: '*',
+  origin: 'https://wondrous-fenglisu-cde1b5.netlify.app',
   methods: 'GET,POST,PUT,DELETE,OPTIONS',
   credentials: true, 
 };
