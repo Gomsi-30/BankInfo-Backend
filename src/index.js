@@ -14,6 +14,7 @@ const corsOptions = {
   origin: 'https://wondrous-fenglisu-cde1b5.netlify.app',
   methods: 'GET,POST,PUT,DELETE,OPTIONS',
   credentials: true, 
+  allowedHeaders: 'Content-Type,Authorization', 
 };
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
