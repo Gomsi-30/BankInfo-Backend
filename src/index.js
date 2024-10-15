@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser';
 import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
-const app = express();
+export const app = express();
 app.use(cookieParser());
 app.use(cors({
   origin: 'http://localhost:3000',
