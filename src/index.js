@@ -11,7 +11,7 @@ dotenv.config();
 export const app = express();
 app.use(cookieParser());
 const corsOptions = {
-  origin: 'https://wondrous-fenglisu-cde1b5.netlify.app', // Netlify domain
+  origin: '*',
   methods: 'GET,POST,PUT,DELETE,OPTIONS', // Allow these methods
   credentials: true, // Allow credentials such as cookies or tokens
   allowedHeaders: 'Content-Type,Authorization', // Specify the headers you expect
