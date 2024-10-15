@@ -11,7 +11,7 @@ dotenv.config();
 export const app = express();
 app.use(cookieParser());
 const corsOptions = {
-  origin: 'https://bank-info-frontend.vercel.app',
+  origin: 'https://wondrous-fenglisu-cde1b5.netlify.app',
   credentials: true,
 };
 
