@@ -17,6 +17,9 @@ app.use(cors({
 connectDB();
 
 app.use(express.json());
+app.get('/',(req,res)=>{
+  res.send('hello')
+})
 app.use(userRoutes)
 app.use(bankRoutes)
 app.use(adminRoutes)
