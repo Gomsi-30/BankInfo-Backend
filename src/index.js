@@ -10,13 +10,14 @@ import adminRoutes from './routes/adminRoutes.js';
 dotenv.config();
 const app = express();
 app.use(cookieParser());
+
 const corsOptions = {
   origin: ['https://wondrous-fenglisu-cde1b5.netlify.app', 'https://bank-info-frontend.vercel.app'],
-
   methods: 'GET,POST,PUT,DELETE,OPTIONS',
   credentials: true, 
   allowedHeaders: 'Content-Type,Authorization', 
 };
+
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
@@ -26,6 +27,11 @@ app.use(express.json());
 app.get('/',(req,res)=>{
   res.send('hello')
 })
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 app.use(userRoutes)
 app.use(bankRoutes)
 app.use(adminRoutes)
