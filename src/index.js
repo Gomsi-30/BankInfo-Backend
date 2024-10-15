@@ -8,13 +8,12 @@ import cookieParser from 'cookie-parser';
 import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
-export const app = express();
+const app = express();
 app.use(cookieParser());
 const corsOptions = {
   origin: '*',
-  methods: 'GET,POST,PUT,DELETE,OPTIONS', // Allow these methods
-  credentials: true, // Allow credentials such as cookies or tokens
-  allowedHeaders: 'Content-Type,Authorization', // Specify the headers you expect
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  credentials: true, 
 };
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
@@ -29,6 +28,8 @@ app.use(userRoutes)
 app.use(bankRoutes)
 app.use(adminRoutes)
 
-export const app2 = app.listen(3001, () => {
+app.listen(3001, () => {
   console.log('Server started on port 3001');
 })
+
+export default app;
