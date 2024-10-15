@@ -29,6 +29,6 @@ app.use(userRoutes)
 app.use(bankRoutes)
 app.use(adminRoutes)
 
-app.listen(3001, () => {
+export const app2 = app.listen(3001, () => {
   console.log('Server started on port 3001');
 })
