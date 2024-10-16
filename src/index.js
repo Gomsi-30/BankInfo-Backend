@@ -8,9 +8,11 @@ import cookieParser from 'cookie-parser';
 import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
+connectDB();
 const app = express();
 app.use(cookieParser());
 
+app.use(express.json());
 const corsOptions = {
   origin: 'https://wondrous-fenglisu-cde1b5.netlify.app',
   credentials: true, 
@@ -20,9 +22,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-connectDB();
 
-app.use(express.json());
+
 app.get('/',(req,res)=>{
   res.send('hello')
 })
