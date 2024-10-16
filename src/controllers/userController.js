@@ -9,7 +9,7 @@ export const createUser = async (req, res) => {
     const user = await User.findOne({email});
     console.log('fn called3');
     if(user){
-      console.log('fn called4');
+        console.log('fn called4');
         return res.status(400).send({ message: "User already exists" });
      }
      console.log('fn called5');

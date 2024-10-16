@@ -2,7 +2,9 @@ import User from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 
 export const isAuthenticated = async function (req, res, next) {
+    console.log('called')
     const token = req.cookies.token;
+    console.log(token)
     if (!token) {
         return res.status(401).send({ message: "Token not found" });
     }
