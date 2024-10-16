@@ -4,6 +4,7 @@ import User from "../models/userModel.js";
 
 export const createBank = async (req, res) => {
     try {
+      console.log('called ')
       req.body.user = req.user._id;
       const bank = await Bank.create(req.body);
       const user = await User.findById(req.user._id);
