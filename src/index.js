@@ -13,15 +13,22 @@ const app = express();
 app.use(cookieParser());
 
 app.use(express.json());
-const corsOptions = {
-  origin: 'https://wondrous-fenglisu-cde1b5.netlify.app',
-  credentials: true, 
-  allowedHeaders: 'Content-Type,Authorization', 
-};
 
-app.use(cors(corsOptions));
+const allowedOrigins = ['https://wondrous-fenglisu-cde1b5.netlify.app']; 
 
+app.use(cors({
+  origin: function (origin, callback) {
+  
+    if (!origin) return callback(null, true);
 
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true 
+}));
 
 
 app.get('/',(req,res)=>{
