@@ -5,12 +5,16 @@ import bcrypt from "bcrypt";
 export const createUser = async (req, res) => {
     console.log('fn called');
     const {email} = req.body;
+    console.log('fn called2');
     const user = await User.findOne({email});
+    console.log('fn called3');
     if(user){
+      console.log('fn called4');
         return res.status(400).send({ message: "User already exists" });
      }
+     console.log('fn called5');
     const newuser = await User.create({...req.body})
-   
+    console.log('fn called6');
    console.log(newuser);
    
    giveToken(newuser,201,res)
