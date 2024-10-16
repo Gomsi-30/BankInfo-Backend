@@ -11,7 +11,6 @@ dotenv.config();
 connectDB();
 const app = express();
 app.use(cookieParser());
-
 app.use(express.json());
 
 const allowedOrigins = ['https://wondrous-fenglisu-cde1b5.netlify.app']; 
