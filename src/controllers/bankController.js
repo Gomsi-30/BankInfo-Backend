@@ -3,14 +3,24 @@ import User from "../models/userModel.js";
 
 
 export const createBank = async (req, res) => {
-    console.log('bank called')
-    req.body.user = req.user._id;
-    const bank = await Bank.create(req.body);
-    const user = await User.findById(req.user._id);
-    user.banks.push(bank._id);
-    await user.save();
-    return res.send(bank);
-}
+    try {
+      req.body.user = req.user._id;
+      const bank = await Bank.create(req.body);
+      const user = await User.findById(req.user._id);
+      
+      if (!user) {
+        return res.status(404).send({ message: 'User not found' });
+      }
+  
+      user.banks.push(bank._id);
+      await user.save();
+  
+      return res.status(201).json(bank);
+    } catch (error) {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  };
+  
 
 export const viewBanks = async (req, res) => {
     const banks = await Bank.find({ user: req.user._id });  
